@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ultra Proxy</title>
+  <script src="https://unpkg.com/@mercuryworkshop/wisp-js@0.4.1/client.js"></script>
+  <style>
+    body { font-family: Arial; margin: 0; padding: 20px; background: #f5f5f5; }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; }
+    h1 { color: #333; text-align: center; }
+    input { width: 70%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; }
+    button { padding: 12px 24px; background: #4285f4; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #3367d6; }
+    iframe { width: 100%; height: 600px; border: none; border-radius: 4px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 Ultra Proxy</h1>
+    <input type="url" id="url" placeholder="Enter website URL...">
+    <button onclick="loadSite()">Go</button>
+    <iframe id="proxyFrame"></iframe>
+  </div>
+  <script>
+    function loadSite() {
+      const url = document.getElementById('url').value.trim();
+      if (!url) return;
+      document.getElementById('proxyFrame').src = 'https://uv.astrolabe.run/service/?url=' + encodeURIComponent(url);
+    }
+    document.getElementById('url').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') loadSite();
+    });
+  </script>
+</body>
+</html>
